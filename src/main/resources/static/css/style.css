@@ -54,7 +54,11 @@ https://img.wallpapersafari.com/desktop/1440/900/94/84/VGaEvz.jpg
 https://1.bp.blogspot.com/-Ya8QH0k5h_o/XUmnRvGGldI/AAAAAAAAAcQ/hxArI80dgZoRMp5QE25-T_Hd7IDx5XZhQCLcBGAs/s1600/cropped-fast-furious-presents-hobbs-shaw-5d3707e673d3e.jpg */
 
 
-.site-header h1{font-size: 30px;
+body > main > section > h1:nth-child(9){
+    font-size: 40px;
+}
+
+.site-header h1{font-size: 50px;
     color: white;
     width: 90%;
     /* margin-right: 40px; */
@@ -64,7 +68,7 @@ https://1.bp.blogspot.com/-Ya8QH0k5h_o/XUmnRvGGldI/AAAAAAAAAcQ/hxArI80dgZoRMp5QE
     /* background: rgba(0, 0, 0, 0.5); */
 }
 
-.site-header h2{font-size: 20px;
+.site-header h2{font-size: 30px;
     color: white;
     width: 90%;
     /* margin-right: 40px; */
