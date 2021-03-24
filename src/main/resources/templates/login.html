@@ -6,8 +6,9 @@
 <header th:replace="fragments/fragment :: header"></header>
 <main>
 
-    <main>
-
+    <section class="one-step">
+        <h1>One more step</h1>
+    </section>
         <div class="inputs-register">
             <div th:if="${bad_credentials}" class="alert alert-danger" role="alert">
                 This username and password combination does not exist.
