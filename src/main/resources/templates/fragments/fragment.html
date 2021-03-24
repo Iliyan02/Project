@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
 <head th:fragment="head">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
@@ -15,12 +17,12 @@
     <section class="navigation">
         <nav class="navbar navbar-expand-lg bg-nav rounded" id="navbar" style="background-color:black" >
             <div class="container-fluid">
-                <a href="/home"><p>i<span><i class="fas fa-film"></i></span>Movie</p></a>
+                <a href="/"><p>i<span><i class="fas fa-film"></i></span>Movie</p></a>
                 <div class="nav-item setting hide-on-mobile">
 
                 </div>
                 <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <button sec:authorize="isAuthenticated()" class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Genres
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -44,21 +46,21 @@
                 </div>
                 <ul class="navbar-nav me">
                     <li class="nav-item">
-                        <a style="color: #FFFF" class="btn nav-link" href="#">Privacy Policy</a>
+                        <a  sec:authorize="isAuthenticated()" style="color: #FFFF" class="btn nav-link" href="#">Privacy Policy</a>
                     </li>
                 </ul>
 
 
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a style="color: #FFFF" class="btn nav-link" href="#">Content Policy</a>
+                    <li  class="nav-item">
+                        <a  sec:authorize="isAuthenticated()" style="color: #FFFF" class="btn nav-link" href="#">Content Policy</a>
                     </li>
                 </ul>
             </div>
 
 
             <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <button sec:authorize="hasRole('ROLE_ADMIN')" class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Admin panel
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -70,12 +72,18 @@
 
 
             <form class="d-flex">
-                <input style="width: 300px;" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <input sec:authorize="isAuthenticated()" style="width: 300px;" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
             </form>
 
-            <a class="btn btn-outline-light" href="/users/login" >Login</a>
-            <a class="btn btn-outline-light" href="/users/register" >Register</a>
-            <a class="btn btn-outline-light" href="#">Logout</a>
+             <a sec:authorize="!isAuthenticated()" class="btn btn-outline-light" href="/users/login" >Login</a>
+            <a  sec:authorize="!isAuthenticated()" class="btn btn-outline-light" href="/users/register" >Register</a>
+            <li sec:authorize="isAuthenticated()" class="nav-item">
+                <form th:action="@{/logout}" method="POST">
+                    <button type="submit" class="nav-link">
+                        Logout
+                    </button>
+                </form>
+            </li>
             </div>
             </div>
         </nav>
