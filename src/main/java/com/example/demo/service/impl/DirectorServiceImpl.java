@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Arrays;
+import java.util.List;
 
 @Service
 public class DirectorServiceImpl implements DirectorService {
@@ -40,5 +41,16 @@ public class DirectorServiceImpl implements DirectorService {
                 throw new IllegalStateException("Cannot seed directors");
             }
         }
+    }
+
+    @Override
+    public List<String> findAllDirectors() {
+        return directorsRepository.findAllDirectors();
+    }
+
+    @Override
+    public DirectorEntity findByName(String director) {
+        return directorsRepository.findByName(director)
+                .orElseThrow(IllegalArgumentException::new);
     }
 }

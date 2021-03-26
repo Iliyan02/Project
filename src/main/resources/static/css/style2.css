@@ -405,7 +405,72 @@ section > div > header > a{
     margin-left: 500px;
 }
 
+body > main > div > form > div.d-flex.justify-content-center.mt-4{
+
+    margin-top: 25px;
+    margin-bottom: 50px
+}
+
+body > main > div > form > div:nth-child(4){
+    margin-top: 30px;
+
+}
+
+body > main > div > form > div:nth-child(3){
+    margin-top: 30px;
+
+}
+
+body > main > div > form > div:nth-child(3) > div:nth-child(1){
+    margin-bottom: 20px;
+}
+
+body > main > div > form > div.form-row.m-5 > div:nth-child(1){
+    margin-bottom: 20px;
+}
+
+body > main > div > form > div.form-row.m-5 > div:nth-child(2){
+    margin-bottom: 20px;
+}
+
+body > main > div > form > div:nth-child(2){
+    margin-left: 200px;
+    margin-right: 200px;
+}
+
+body > main > div > form > div:nth-child(3){
+    margin-left: 200px;
+}
+
+body > main > div > form > div:nth-child(4){
+    margin-left: 200px;
+    margin-right: 200px;
+}
+
+body > main > div > form > div.d-flex.justify-content-center.mt-4{
+    margin-left: 150px;
+    margin-right: 150px;
+}
+
+body > main > div > form > div.form-row.m-5 > div:nth-child(2){
+    margin-left: 150px;
+}
+
+body > main > div > form > div.form-row.m-5 > div:nth-child(3){
+    margin-left: 150px;
+}
+
+body > main > div > form > div.form-row.m-5 > div:nth-child(1){
+    margin-left: 150px;
+    margin-right: 150px;
+}
+
+
 #navbar > li > form > button{
     margin-bottom: 22px;
 }
 
+body > main > div > form > div:nth-child(5) > div{
+    margin-left: 200px;
+
+}

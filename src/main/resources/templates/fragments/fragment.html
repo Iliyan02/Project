@@ -26,7 +26,7 @@
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                         <a class="dropdown-item" href="/statistics">Action</a>
-                        <a class="dropdown-item" href="/articles/add">Horror</a>
+                        <a class="dropdown-item" href="">Horror</a>
                         <a class="dropdown-item" href="#">Romantic</a>
                     </div>
                 </div>
@@ -64,7 +64,7 @@
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <a class="dropdown-item" href="/statistics">Statistics</a>
-                    <a class="dropdown-item" href="/articles/add">Add movie</a>
+                    <a class="dropdown-item" href="/movies/add">Add movie</a>
                     <a class="dropdown-item" href="#">Delete movie</a>
                 </div>
             </div>
@@ -78,7 +78,7 @@
             <a  sec:authorize="!isAuthenticated()" class="btn btn-outline-light" href="/users/register" >Register</a>
             <li sec:authorize="isAuthenticated()" class="nav-item">
                 <form th:action="@{/logout}" method="POST">
-                    <button type="submit" class="nav-link">
+                    <button type="submit" class="btn btn-info nav-link">
                         Logout
                     </button>
                 </form>
