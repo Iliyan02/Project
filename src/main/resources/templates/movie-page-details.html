@@ -17,18 +17,12 @@
                 </a>
 
             </div>
-            <div id="content">
-                <h2>DeadPool</h2>
-                <div class="ratings">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star inactive"></i>
-                </div>
-                <p class="description"> Ajax, a twisted scientist, experiments on Wade Wilson, a mercenary, to cure him of cancer and give him healing powers. However, the experiment leaves Wade disfigured and he decides to exact revenge.</p>
+            <div th:object="${movie}" id="content">
+                <h2 th:text="*{name}">DeadPool</h2>
+                <dd class="col-sm-8" th:text="*{rating}">/6
+                <p th:text="*{description}" class="description"> Ajax, a twisted scientist, experiments on Wade Wilson, a mercenary, to cure him of cancer and give him healing powers. However, the experiment leaves Wade disfigured and he decides to exact revenge.</p>
 
-                <p class="info">R <span>|</span>108 min <span>|</span>Action,
+                <p th:text="*{genre}" class="info">R <span>|</span>108 min <span>|</span>Action,
                     Adventure, Comedy <span>|</span> 12 february 2016</p>
             </div>
         </div>

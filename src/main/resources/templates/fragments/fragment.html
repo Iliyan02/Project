@@ -16,7 +16,7 @@
     <section class="navigation">
         <nav class="navbar navbar-expand-lg bg-nav rounded" id="navbar" style="background-color:black" >
             <div class="container-fluid">
-                <a href="/"><p>i<span><i class="fas fa-film"></i></span>Movie</p></a>
+                <a href="/home"><p>i<span><i class="fas fa-film"></i></span>Movie</p></a>
                 <div class="nav-item setting hide-on-mobile">
 
                 </div>
@@ -25,34 +25,39 @@
                         Genres
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="/statistics">Action</a>
+                        <a class="dropdown-item" href="">Action</a>
                         <a class="dropdown-item" href="">Horror</a>
-                        <a class="dropdown-item" href="#">Romantic</a>
+                        <a class="dropdown-item" href="#">Romance</a>
+                        <a class="dropdown-item" href="#">SCI-FY</a>
+                        <a class="dropdown-item" href="#">Thriller</a>
+                        <a class="dropdown-item" href="#">FANTASY</a>
+                        <a class="dropdown-item" href="#">Comedy</a>
+                        <a class="dropdown-item" href="#">Drama</a>
+                        <a class="dropdown-item" href="#">War</a>
+                        <a class="dropdown-item" href="#">Western</a>
+                        <a class="dropdown-item" href="#">Criminal</a>
+                        <a class="dropdown-item" href="#">Adventure</a>
                     </div>
                 </div>
 
-                <button class="btn btn-info" id="myBtn">About Us</button>
-
-                <!-- The Modal -->
-                <div id="myModal" class="modal">
-
-                    <!-- Modal content -->
-                    <div class="modal-content">
-                        <span class="close">&times;</span>
-                        <p>Some text in the Modal..</p>
-                    </div>
-
-                </div>
                 <ul class="navbar-nav me">
                     <li class="nav-item">
-                        <a  sec:authorize="isAuthenticated()" style="color: #FFFF" class="btn nav-link" href="#">Privacy Policy</a>
+                        <a style="color: #FFFF" class="btn nav-link" href="/policy/aboutUs">About Us</a>
+                    </li>
+                </ul>
+
+
+
+                <ul class="navbar-nav me">
+                    <li class="nav-item">
+                        <a  style="color: #FFFF" class="btn nav-link" href="/policy/privacy">Privacy Policy</a>
                     </li>
                 </ul>
 
 
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li  class="nav-item">
-                        <a  sec:authorize="isAuthenticated()" style="color: #FFFF" class="btn nav-link" href="#">Content Policy</a>
+                        <a  sec:authorize="isAuthenticated()" style="color: #FFFF" class="btn nav-link" href="/policy/content">Content Policy</a>
                     </li>
                 </ul>
             </div>
@@ -71,7 +76,7 @@
 
 
             <form class="d-flex">
-                <input sec:authorize="isAuthenticated()" style="width: 300px;" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <input sec:authorize="isAuthenticated()" style="width: 300px;" id="searchInput" class="form-control me-2" type="search" placeholder="Enter movie title or director name" aria-label="Search">
             </form>
 
              <a sec:authorize="!isAuthenticated()" class="btn btn-outline-light" href="/users/login" >Login</a>

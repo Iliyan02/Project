@@ -4,6 +4,7 @@ import com.example.demo.model.entity.DirectorEntity;
 import com.example.demo.model.entity.MovieEntity;
 import com.example.demo.model.entity.UserEntity;
 import com.example.demo.model.service.MovieServiceModel;
+import com.example.demo.model.view.MovieViewModel;
 import com.example.demo.repository.MovieRepository;
 import com.example.demo.repository.UserRepository;
 import com.example.demo.service.DirectorService;
@@ -37,5 +38,17 @@ public class MovieServiceImpl implements MovieService {
 
         movieEntity.setDirectorEntity(directorEntity);
         movieRepository.save(movieEntity);
+    }
+
+    @Override
+    public MovieViewModel findById(Long id) {
+        return movieRepository
+                .findById(id)
+                .map(movieEntity -> {
+                    MovieViewModel movieViewModel  = modelMapper
+                            .map(movieEntity, MovieViewModel.class);
+                    movieViewModel.setDirector(movieEntity.getDirectorEntity().getName());
+                    return movieViewModel;
+                }).orElseThrow(IllegalArgumentException::new);
     }
 }

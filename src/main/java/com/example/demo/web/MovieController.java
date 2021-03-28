@@ -2,6 +2,7 @@ package com.example.demo.web;
 
 import com.example.demo.model.binding.MovieAddBindingModel;
 import com.example.demo.model.service.MovieServiceModel;
+import com.example.demo.model.view.MovieViewModel;
 import com.example.demo.service.DirectorService;
 import com.example.demo.service.MovieService;
 import org.modelmapper.ModelMapper;
@@ -10,10 +11,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
@@ -70,6 +68,15 @@ public class MovieController {
         movieService.createMovie(movieServiceModel);
 
         return "redirect:/home";
+    }
+
+    @GetMapping("/movie-page-details/{id}")
+    public String details(@PathVariable Long id, Model model){
+        MovieViewModel movieViewModel = movieService.findById(id);
+
+        model.addAttribute("movie", movieViewModel);
+
+        return "movie-page-details";
     }
 
 
